@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Famiglia — XI.VI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --black:#090909;
+    --black-2:#111111;
+    --black-3:#181818;
+    --wine:#64151d;
+    --wine-dark:#35090f;
+    --wine-light:#8d2732;
+    --gold:#c9a45c;
+    --gold-light:#e4c982;
+    --cream:#eee7d6;
+    --paper:#e9e0cc;
+    --text:#241d18;
+    --muted:#82786b;
+    --white:#f8f4e9;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html{scroll-snap-type:y mandatory;}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--cream);
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(141,39,50,.28), transparent 32%),
+        linear-gradient(135deg,#050505 0%,#0b0b0b 45%,#1b0b0e 100%);
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+    opacity:.16;
+    background-image:
+        repeating-linear-gradient(90deg,transparent 0 44px,rgba(255,255,255,.08) 45px 46px),
+        repeating-linear-gradient(0deg,transparent 0 44px,rgba(255,255,255,.04) 45px 46px);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.65) 100%);
+}
+
+.cloud{display:none;}
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    background:rgba(7,7,7,.94);
+    border-bottom:1px solid rgba(201,164,92,.5);
+    box-shadow:0 8px 30px rgba(0,0,0,.5);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    color:var(--gold);
+    font-family:'Cinzel',serif;
+    font-size:20px;
+    letter-spacing:3px;
+    font-weight:800;
+    text-shadow:0 0 18px rgba(201,164,92,.2);
+}
+
+nav{display:flex;gap:24px;}
+
+nav a{
+    color:#bcb3a4;
+    text-decoration:none;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    font-weight:700;
+    position:relative;
+    transition:.3s;
+}
+
+nav a:hover,nav a.active{color:var(--gold-light);}
+
+nav a.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-12px;
+    width:100%;
+    height:1px;
+    background:var(--gold);
+    box-shadow:0 0 8px rgba(201,164,92,.7);
+}
+
+/* ================= SECTION ================= */
+
+section{
+    min-height:100vh;
+    padding:115px 7% 70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    scroll-snap-align:start;
+    overflow:hidden;
+}
+
+section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(rgba(201,164,92,.12) 1px,transparent 1px);
+    background-size:30px 30px;
+    opacity:.22;
+    pointer-events:none;
+}
+
+section::after{
+    content:"";
+    position:absolute;
+    width:460px;
+    height:460px;
+    border:1px solid rgba(201,164,92,.07);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 0 35px rgba(201,164,92,.018),0 0 0 70px rgba(201,164,92,.012);
+    pointer-events:none;
+}
+
+/* ================= HOME ================= */
+
+.home{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+}
+
+.home-content{
+    max-width:650px;
+    animation:slideLeft 1s ease;
+    position:relative;
+    z-index:2;
+}
+
+.small-text{
+    color:var(--gold);
+    font-family:'Cinzel',serif;
+    font-size:14px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.small-text span{color:var(--cream);}
+
+.home-content h1{
+    font-family:'Cinzel',serif;
+    font-size:64px;
+    line-height:1.05;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    color:var(--cream);
+    text-shadow:3px 3px 0 #000,0 0 30px rgba(201,164,92,.12);
+}
+
+.home-content h1 span{
+    color:var(--gold);
+    text-shadow:2px 2px 0 #241309;
+}
+
+.home-content p{
+    color:#aaa294;
+    font-size:13px;
+    line-height:2;
+    max-width:560px;
+    font-weight:400;
+}
+
+.home-buttons{display:flex;gap:13px;margin-top:28px;}
+
+.btn{
+    padding:13px 23px;
+    border-radius:2px;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    font-weight:800;
+    transition:.3s;
+}
+
+.btn-primary{
+    color:#17120c;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold));
+    border:1px solid var(--gold-light);
+    box-shadow:0 5px 0 #735b2c,0 0 20px rgba(201,164,92,.12);
+}
+
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 0 #735b2c;}
+
+.btn-outline{
+    color:var(--cream);
+    background:transparent;
+    border:1px solid #655d50;
+    box-shadow:0 5px 0 #070707;
+}
+
+.btn-outline:hover{transform:translateY(-3px);border-color:var(--gold);color:var(--gold-light);}
+
+/* ================= FOTO ================= */
+
+.home-image{
+    width:315px;
+    height:315px;
+    flex-shrink:0;
+    padding:8px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--gold),var(--wine),#17100d);
+    border:1px solid var(--gold);
+    box-shadow:0 8px 0 rgba(0,0,0,.7),0 18px 55px rgba(0,0,0,.55);
+    position:relative;
+    animation:float 4s ease-in-out infinite;
+}
+
+.home-image::before{
+    content:"";
+    position:absolute;
+    inset:-13px;
+    border:1px dashed rgba(201,164,92,.7);
+    border-radius:50%;
+    animation:spin 20s linear infinite;
+}
+
+.home-image::after{
+    content:"LA FAMIGLIA";
+    position:absolute;
+    bottom:-38px;
+    left:50%;
+    transform:translateX(-50%);
+    white-space:nowrap;
+    font:700 10px 'Cinzel',serif;
+    letter-spacing:4px;
+    color:var(--gold);
+}
+
+.home-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:50%;
+    background:#111;
+    filter:saturate(.7) contrast(1.08);
+}
+
+/* ================= SOCIAL SIDEBAR ================= */
+
+.social-sidebar {
+    position:fixed;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    z-index:500;
+}
+
+.social-sidebar a {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:3px;
+    text-decoration:none;
+    color:var(--gold);
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    transition:.3s;
+    opacity:.7;
+}
+
+.social-sidebar a:hover {
+    opacity:1;
+    transform:scale(1.1);
+}
+
+.social-sidebar a img {
+    width:35px;
+    height:35px;
+    object-fit:contain;
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:34px;
+    position:relative;
+    z-index:2;
+}
+
+.section-title h2{
+    font-family:'Cinzel',serif;
+    font-size:36px;
+    letter-spacing:2px;
+    color:var(--cream);
+    text-shadow:2px 2px 0 #000;
+}
+
+.section-title h2 span{
+    color:var(--gold);
+    text-shadow:1px 1px 0 #241309;
+}
+
+.section-title p{
+    color:#81796d;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-top:9px;
+    font-weight:600;
+}
+
+/* ================= ABOUT ================= */
+
+.about-box{
+    max-width:900px;
+    margin:auto;
+    padding:38px;
+    background:linear-gradient(145deg,#e9e0cc,#d8cdb7);
+    border:1px solid var(--gold);
+    border-radius:2px;
+    box-shadow:0 8px 0 #050505,0 20px 50px rgba(0,0,0,.45);
+    position:relative;
+    z-index:2;
+}
+
+.about-box::before{
+    content:"CONFIDENTIAL";
+    position:absolute;
+    right:20px;
+    top:15px;
+    font:700 9px 'Cinzel',serif;
+    letter-spacing:2px;
+    color:rgba(100,21,29,.55);
+}
+
+.about-box > p{
+    color:#40372e;
+    font-size:13px;
+    line-height:2;
+    text-align:center;
+}
+
+.info-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:30px;
+}
+
+.info-card{
+    padding:22px;
+    text-align:center;
+    background:#f0e8d7;
+    border:1px solid #a88b5b;
+    border-radius:2px;
+    box-shadow:0 5px 0 #594728;
+    transition:.3s;
+}
+
+.info-card:nth-child(2){border-color:var(--wine);box-shadow:0 5px 0 var(--wine-dark);}
+.info-card:nth-child(3){border-color:#a88b5b;box-shadow:0 5px 0 #594728;}
+
+.info-card:hover{transform:translateY(-6px);}
+
+.info-card h3{font-size:23px;margin-bottom:8px;filter:grayscale(.7);}
+.info-card p{font-size:10px;color:#786b5a;text-transform:uppercase;letter-spacing:1px;}
+.info-card strong{display:block;margin-top:5px;color:var(--wine);font:700 12px 'Cinzel',serif;}
+
+/* ================= STRUCTURE - TREE / SILSILAH ================= */
+.structure-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: linear-gradient(145deg, #e9e0cc, #d8cdb7);
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    box-shadow: 0 8px 0 #050505, 0 20px 50px rgba(0,0,0,.45);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    overflow-x:auto;
+}
+
+.structure-wrapper .title-main {
+    font: 700 26px 'Cinzel', serif;
+    color: var(--wine-dark);
+    letter-spacing: 4px;
+    margin-bottom: 2px;
+}
+
+.structure-wrapper .title-sub {
+    font: 700 16px 'Cinzel', serif;
+    color: var(--wine);
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 12px;
+}
+
+/* TREE STRUCTURE */
+.tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.tree-level-1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.tree-level-1 .tree-node {
+    background: linear-gradient(135deg, #f0e8d7, #e4dac4);
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 0 #735b2c;
+    padding: 12px 35px;
+    min-width: 200px;
+}
+
+.tree-node {
+    background: #f0e8d7;
+    border: 1px solid #a88b5b;
+    border-radius: 2px;
+    box-shadow: 0 4px 0 #594728;
+    padding: 10px 24px;
+    transition: .3s;
+    text-align: center;
+}
+
+.tree-node:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 0 #735b2c;
+}
+
+.tree-node .role {
+    font: 700 10px 'Cinzel', serif;
+    color: var(--wine);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: block;
+}
+
+.tree-node .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d241b;
+    display: block;
+    margin-top: 2px;
+}
+
+.tree-level-1 .tree-node .role {
+    font-size: 12px;
+    color: var(--wine-dark);
+}
+
+.tree-level-1 .tree-node .name {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.tree-line-vertical {
+    width: 2px;
+    height: 25px;
+    background: var(--gold);
+    opacity: .5;
+    margin: 0 auto;
+}
+
+.tree-level-2 {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
+
+.tree-level-2 .tree-node {
+    min-width: 150px;
+}
+
+.tree-line-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    height: 20px;
+    position: relative;
+}
+
+.tree-line-horizontal .line-left,
+.tree-line-horizontal .line-right {
+    flex: 1;
+    height: 2px;
+    background: var(--gold);
+    opacity: .4;
+}
+
+.tree-line-horizontal .line-center {
+    width: 2px;
+    height: 20px;
+    background: var(--gold);
+    opacity: .4;
+}
+
+.tree-level-3 {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 0;
+}
+
+.tree-level-3 .tree-node {
+    min-width: 120px;
+    padding: 8px 18px;
+}
+
+.tree-level-3 .tree-node .role {
+    font-size: 9px;
+}
+
+.tree-level-3 .tree-node .name {
+    font-size: 12px;
+}
+
+.tree-branch-connector {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    height: 20px;
+    position: relative;
+}
+
+.tree-branch-connector .branch-line {
+    width: 2px;
+    height: 20px;
+    background: var(--gold);
+    opacity: .4;
+}
+
+.tree-branch-connector .branch-horizontal {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 30px);
+    height: 2px;
+    background: var(--gold);
+    opacity: .4;
+}
+
+@media(max-width:750px){
+    .tree-level-2 {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+    .tree-level-3 {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+    .tree-line-horizontal {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+    }
+    .tree-line-horizontal .line-left,
+    .tree-line-horizontal .line-right {
+        display: none;
+    }
+    .tree-line-horizontal .line-center {
+        height: 15px;
+    }
+    .tree-branch-connector {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 0;
+    }
+    .tree-branch-connector .branch-horizontal {
+        display: none;
+    }
+    .tree-branch-connector .branch-line {
+        height: 10px;
+    }
+    .tree-level-2 {
+        gap: 0;
+    }
+    .tree-level-2 .tree-node {
+        min-width: 140px;
+    }
+    .tree-level-3 .tree-node {
+        min-width: 120px;
+    }
+    .tree-level-1 .tree-node {
+        min-width: 160px;
+        padding: 10px 20px;
+    }
+}
+
+/* ================= MEMBERS ================= */
+
+.members-wrapper{
+    width:100%;
+    max-width:1050px;
+    max-height:58vh;
+    margin:auto;
+    overflow:auto;
+    padding:5px;
+    background:#e9e0cc;
+    border:1px solid var(--gold);
+    border-radius:2px;
+    box-shadow:0 7px 0 #050505;
+    position:relative;
+    z-index:2;
+}
+
+.member-table{width:100%;border-collapse:collapse;}
+.member-table th{
+    position:sticky;
+    top:0;
+    background:var(--wine-dark);
+    color:var(--gold-light);
+    padding:13px;
+    text-align:left;
+    z-index:2;
+    font:700 10px 'Cinzel',serif;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+.member-table td{
+    padding:12px;
+    border-bottom:1px solid #cfc2aa;
+    color:#4d4439;
+    font-size:12px;
+}
+.member-table tr:hover{background:#f2e6c9;}
+
+/* ================= SCHEDULE ================= */
+
+.schedule-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    max-width:1000px;
+    width:100%;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.day-card{
+    padding:22px 17px;
+    background:#e9e0cc;
+    border:1px solid #a88b5b;
+    border-radius:2px;
+    border-top:4px solid var(--gold);
+    box-shadow:0 6px 0 #4c3b22;
+    transition:.3s;
+}
+
+.day-card:nth-child(even){border-top-color:var(--wine);box-shadow:0 6px 0 var(--wine-dark);}
+.day-card:hover{transform:translateY(-7px);}
+.day-card h3{color:var(--wine);font:700 18px 'Cinzel',serif;text-align:center;margin-bottom:15px;}
+.day-card p{font-size:10px;color:#6d6254;padding:7px 0;border-bottom:1px dashed #b9aa91;}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    max-width:1000px;
+    width:100%;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.portfolio-card{
+    min-height:180px;
+    padding:25px;
+    border-radius:2px;
+    background:#e9e0cc;
+    border:1px solid #a88b5b;
+    border-top:4px solid var(--gold);
+    box-shadow:0 6px 0 #4c3b22;
+    transition:.4s;
+}
+
+.portfolio-card:nth-child(even){border-top-color:var(--wine);box-shadow:0 6px 0 var(--wine-dark);}
+.portfolio-card:hover{transform:translateY(-7px);}
+.portfolio-card h3{color:var(--wine);font:700 16px 'Cinzel',serif;letter-spacing:.5px;margin-bottom:8px;}
+.portfolio-card p{font-size:11px;color:#6d6254;line-height:1.7;}
+.portfolio-card .icon{font-size:28px;margin-bottom:12px;filter:grayscale(.65);}
+
+/* ================= MEDIA ================= */
+.media-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 30px 35px;
+    background: linear-gradient(145deg, #e9e0cc, #d8cdb7);
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    box-shadow: 0 8px 0 #050505, 0 20px 50px rgba(0,0,0,.45);
+    position: relative;
+    z-index: 2;
+}
+
+.media-wrapper .media-title {
+    font: 700 28px 'Cinzel', serif;
+    color: var(--wine-dark);
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.media-wrapper .media-sub {
+    text-align: center;
+    color: #6d6254;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.media-card {
+    background: #f0e8d7;
+    border: 1px solid #a88b5b;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 5px 0 #594728;
+    transition: .3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.media-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 0 #735b2c;
+}
+
+.media-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid var(--gold);
+}
+
+.media-card .media-label {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #2d241b;
+}
+
+.media-card .media-label .platform {
+    font: 700 11px 'Cinzel', serif;
+    color: var(--wine);
+    letter-spacing: 1px;
+}
+
+.media-card .media-label .arrow {
+    color: var(--gold);
+    font-size: 18px;
+}
+
+/* Spotify Playlist Card */
+.media-spotify {
+    grid-column: 1 / -1;
+    background: #1a1a1a;
+    border-color: #2d2d2d;
+    box-shadow: 0 5px 0 #0a0a0a;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.media-spotify:hover {
+    box-shadow: 0 8px 0 #1a1a1a;
+}
+
+.media-spotify .spotify-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.media-spotify .spotify-icon {
+    font-size: 32px;
+    color: #1DB954;
+}
+
+.media-spotify .spotify-text .title {
+    font: 700 16px 'Cinzel', serif;
+    color: #eee7d6;
+}
+
+.media-spotify .spotify-text .desc {
+    font-size: 11px;
+    color: #9a8f82;
+}
+
+.media-spotify .spotify-btn {
+    padding: 8px 22px;
+    background: #1DB954;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .3s;
+    text-decoration: none;
+    letter-spacing: .5px;
+}
+
+.media-spotify .spotify-btn:hover {
+    background: #1ed760;
+    transform: scale(1.03);
+}
+
+@media(max-width:700px){
+    .media-grid {
+        grid-template-columns: 1fr;
+    }
+    .media-spotify {
+        flex-direction: column;
+        text-align: center;
+    }
+    .media-spotify .spotify-info {
+        flex-direction: column;
+    }
+    .media-card img {
+        height: 180px;
+    }
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    max-width:650px;
+    width:100%;
+    margin:auto;
+    padding:40px;
+    text-align:center;
+    background:#e9e0cc;
+    border:1px solid var(--gold);
+    border-radius:2px;
+    box-shadow:0 7px 0 #050505;
+    position:relative;
+    z-index:2;
+}
+
+.contact-box h2{color:var(--wine);font:700 25px 'Cinzel',serif;margin-bottom:10px;}
+.contact-box p{color:#6d6254;font-size:12px;margin-bottom:25px;}
+
+.socials{display:flex;justify-content:center;gap:15px;}
+.socials a{
+    width:48px;height:48px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;color:var(--cream);
+    background:var(--wine);
+    border:1px solid var(--gold);
+    box-shadow:0 4px 0 var(--wine-dark);
+    transition:.3s;
+    overflow:hidden;
+}
+.socials a img{
+    width:28px;
+    height:28px;
+    object-fit:contain;
+}
+.socials a:nth-child(2){background:#171717;box-shadow:0 4px 0 #000;}
+.socials a:hover{transform:translateY(-5px) rotate(-4deg);border-color:var(--gold-light);}
+
+/* ================= ARROWS ================= */
+
+.scroll-arrows{
+    position:fixed;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:900;
+}
+
+.arrow{
+    width:43px;height:43px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:#111;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    cursor:pointer;
+    font-size:18px;font-weight:700;
+    box-shadow:0 4px 0 #000;
+    transition:.3s;
+}
+.arrow:hover{background:var(--wine);color:var(--gold-light);transform:scale(1.08);}
+
+/* ================= ANIMATION ================= */
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(-45px)}to{opacity:1;transform:translateX(0)}}
+.reveal{opacity:0;transform:translateY(35px);transition:1s ease;}
+.reveal.show{opacity:1;transform:translateY(0);}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+    header{
+        height:auto;min-height:65px;flex-direction:column;gap:8px;padding:12px 4%;
+    }
+    nav{gap:12px;flex-wrap:wrap;justify-content:center;}
+    nav a{font-size:8px;}
+    .home{flex-direction:column;text-align:center;padding-top:135px;}
+    .home-content p{margin:auto;}
+    .home-buttons{justify-content:center;flex-wrap:wrap;}
+    .home-image{width:240px;height:240px;}
+    .home-content h1{font-size:40px;}
+    .info-cards{grid-template-columns:1fr;}
+    .section-title h2{font-size:27px;}
+    .scroll-arrows{right:10px;}
+    .arrow{width:38px;height:38px;}
+    section{padding-left:5%;padding-right:5%;}
+    .structure-wrapper{padding:25px 15px;}
+    .social-sidebar{
+        left:8px;
+    }
+    .social-sidebar a img{
+        width:28px;
+        height:28px;
+    }
+    .social-sidebar a{
+        font-size:6px;
+    }
+}
+
+/* ================= FIXED MUSIC PLAYER ================= */
+
+.music-player{
+    position:fixed;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    width:min(1050px,calc(100% - 32px));
+    min-height:76px;
+    padding:10px 16px 10px 10px;
+    display:grid;
+    grid-template-columns:minmax(190px,1.15fr) auto minmax(200px,1.2fr) 90px 24px;
+    align-items:center;
+    gap:12px;
+    z-index:3000;
+    background:rgba(12,12,12,.94);
+    border:1px solid rgba(201,164,92,.65);
+    border-radius:8px;
+    box-shadow:0 12px 40px rgba(0,0,0,.7),0 0 30px rgba(201,164,92,.08);
+    backdrop-filter:blur(16px);
+    transition:.35s ease;
+    cursor:grab;
+    user-select:none;
+    touch-action:none;
+}
+
+.music-player.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:translate(-50%,20px);
+}
+
+.music-player.dragging{
+    cursor:grabbing;
+    transition:none !important;
+}
+
+.music-player .music-btn,
+.music-player .music-progress,
+.music-player .music-close,
+.music-player .music-volume{
+    cursor:pointer;
+}
+
+.music-player.dragging .music-btn,
+.music-player.dragging .music-progress,
+.music-player.dragging .music-volume{
+    pointer-events:none;
+}
+
+.music-left{
+    min-width:0;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.music-cover{
+    width:52px;
+    height:52px;
+    flex:0 0 52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:5px;
+    overflow:hidden;
+    background:
+        linear-gradient(135deg,rgba(201,164,92,.95),rgba(100,21,29,.95)),
+        #111;
+    border:1px solid rgba(228,201,130,.8);
+    box-shadow:0 4px 15px rgba(0,0,0,.45);
+    font:700 26px 'Cinzel',serif;
+    color:#111;
+}
+
+.music-cover.playing{
+    animation:musicPulse 1.4s ease-in-out infinite;
+}
+
+.music-cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.music-info{
+    min-width:0;
+}
+
+.music-title{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    color:#f0e8d7;
+    font:700 12px 'Cinzel',serif;
+    letter-spacing:.7px;
+}
+
+.music-artist{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    color:#82786b;
+    font-size:9px;
+    margin-top:4px;
+    letter-spacing:.6px;
+}
+
+.music-controls{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.music-btn{
+    width:31px;
+    height:31px;
+    border:0;
+    border-radius:50%;
+    cursor:pointer;
+    background:transparent;
+    color:#b9b0a2;
+    font-size:13px;
+    transition:.2s;
+}
+
+.music-btn:hover{
+    color:#e4c982;
+    transform:scale(1.1);
+}
+
+.music-btn.play-btn{
+    width:38px;
+    height:38px;
+    background:#e4c982;
+    color:#15120d;
+    font-size:13px;
+    box-shadow:0 3px 0 #735b2c;
+}
+
+.music-btn.play-btn:hover{
+    color:#15120d;
+    transform:scale(1.07);
+}
+
+.music-progress-wrap{
+    min-width:0;
+    display:grid;
+    grid-template-columns:32px 1fr 32px;
+    align-items:center;
+    gap:7px;
+    color:#80776b;
+    font-size:8px;
+    font-variant-numeric:tabular-nums;
+}
+
+.music-progress{
+    height:5px;
+    position:relative;
+    background:#37332d;
+    border-radius:20px;
+    cursor:pointer;
+    overflow:hidden;
+}
+
+.music-progress-fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#8d2732,#e4c982);
+    border-radius:20px;
+    transition:width .05s linear;
+    pointer-events:none;
+}
+
+.music-volume-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #80776b;
+    font-size: 14px;
+}
+
+.music-volume-wrap input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 60px;
+    height: 6px;
+    background: #37332d;
+    border-radius: 20px;
+    outline: none;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.music-volume-wrap input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e4c982;
+    cursor: pointer;
+    border: 2px solid #c9a45c;
+    box-shadow: 0 0 10px rgba(201,164,92,.3);
+}
+
+.music-volume-wrap input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e4c982;
+    cursor: pointer;
+    border: 2px solid #c9a45c;
+}
+
+.music-close{
+    border:0;
+    background:transparent;
+    color:#756d61;
+    cursor:pointer;
+    font-size:19px;
+    line-height:1;
+    transition:.2s;
+}
+
+.music-close:hover{color:#e4c982;}
+
+.music-mini{
+    position:fixed;
+    right:22px;
+    bottom:20px;
+    width:48px;
+    height:48px;
+    z-index:3001;
+    display:none;
+    border-radius:50%;
+    border:1px solid #c9a45c;
+    background:#111;
+    color:#e4c982;
+    cursor:pointer;
+    font:700 20px 'Cinzel',serif;
+    box-shadow:0 7px 22px rgba(0,0,0,.6);
+}
+
+.music-mini.show{display:block;}
+
+@keyframes musicPulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.04)}
+}
+
+@media(max-width:800px){
+    .music-player{
+        width:calc(100% - 18px);
+        bottom:9px;
+        grid-template-columns:1fr auto 24px;
+        gap:10px;
+        padding:9px;
+    }
+
+    .music-volume-wrap {
+        display: none;
+    }
+
+    .music-controls{grid-column:2;grid-row:1;}
+    .music-progress-wrap{
+        grid-column:1 / -1;
+        grid-row:2;
+    }
+
+    .music-left{grid-column:1;grid-row:1;}
+    .music-cover{width:44px;height:44px;flex-basis:44px;}
+    .music-title{font-size:10px;}
+    .music-artist{font-size:8px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+
+<!-- ================= SOCIAL SIDEBAR - VERTIKAL DI KIRI ================= -->
+
+<div class="social-sidebar">
+    <a id="instagramSidebar" href="#" target="_blank">
+        <img src="media/instagram.jpg" alt="Instagram">
+        <span>IG</span>
+    </a>
+    <a id="tiktokSidebar" href="#" target="_blank">
+        <img src="media/tiktok.jpg" alt="TikTok">
+        <span>TT</span>
+    </a>
+</div>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+    <div class="logo" id="logo">
+        KELAS KITA.
+    </div>
+
+    <nav>
+
+        <a href="#home" class="active">Home</a>
+
+        <a href="#media">Media</a>
+
+        <a href="#about">Tentang</a>
+
+        <a href="#structure">Struktur</a>
+
+        <a href="#members">Anggota</a>
+
+        <a href="#schedule">Piket</a>
+
+        <a href="#portfolio">Portfolio</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="home">
+
+    <div class="home-content">
+
+        <div class="small-text">
+            Welcome to <span id="slogan"></span>
+        </div>
+
+        <div style="font:700 10px Cinzel,serif;letter-spacing:5px;color:#8f856f;margin-bottom:10px;">THE FAMILY RECORDS • EST. 2025</div>
+        <h1>
+            <span id="namaKelas"></span>
+        </h1>
+
+        <p id="deskripsiHome"></p>
+
+        <div class="home-buttons">
+
+            <a href="#about" class="btn btn-primary">
+                Masuk Markas
+            </a>
+
+            <a href="#members" class="btn btn-outline">
+                Lihat Keluarga
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="home-image">
+
+        <img id="fotoKelas" src="" alt="Foto keluarga XI.VI">
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEDIA ================= -->
+
+<section id="media">
+
+    <div class="section-title">
+
+        <h2>
+            Media <span>Famiglia</span>
+        </h2>
+
+        <p>
+            Kenangan dan jejak digital kelas kita
+        </p>
+
+    </div>
+
+    <div class="media-wrapper reveal">
+        <div class="media-title">MEDIA SOSIAL</div>
+        <div class="media-sub">
+            Gabar di Instagram, suara hati berbisik di tempat tersendiri, imajinasi menari di TikTok,<br>
+            ini perasaan menemukan nadanya di Spotify, cuang, satu perjalanan diri.
+        </div>
+
+        <div class="media-grid">
+            <!-- Instagram Preview -->
+            <a id="instagramMedia" href="#" target="_blank" class="media-card">
+                <img src="media/instagrampreview.jpg" alt="Instagram Preview">
+                <div class="media-label">
+                    <span class="platform">📸 Instagram</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- TikTok Preview -->
+            <a id="tiktokMedia" href="#" target="_blank" class="media-card">
+                <img src="media/tiktokpreview.jpg" alt="TikTok Preview">
+                <div class="media-label">
+                    <span class="platform">🎵 TikTok</span>
+                    <span class="arrow">→</span>
+                </div>
+            </a>
+
+            <!-- Spotify Playlist -->
+            <div class="media-spotify">
+                <div class="spotify-info">
+                    <div class="spotify-icon">🎧</div>
+                    <div class="spotify-text">
+                        <div class="title">X TJKT2</div>
+                        <div class="desc">SPOTIFY • Lucky and cash - 5 stores - 36 songs, 2 hr 30 min</div>
+                    </div>
+                </div>
+                <a href="#" class="spotify-btn" id="spotifyLink">▶ Public Playlist</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>
+            Tentang <span>Famiglia</span>
+        </h2>
+
+        <p>
+            Kenali lebih dekat kelas kita yukk...
+        </p>
+
+    </div>
+
+
+    <div class="about-box reveal">
+
+        <p id="tentang"></p>
+
+
+        <div class="info-cards">
+
+            <div class="info-card">
+
+                <h3>♛</h3>
+
+                <p>Wali Kelas</p>
+
+                <strong id="waliKelas"></strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>⌂</h3>
+
+                <p>Ruang Kelas</p>
+
+                <strong id="ruangKelas"></strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>◈</h3>
+
+                <p>Angkatan</p>
+
+                <strong id="angkatan"></strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= STRUCTURE ================= -->
+
+<section id="structure">
+
+    <div class="section-title">
+
+        <h2>
+            Struktur <span>Kelas</span>
+        </h2>
+
+        <p>
+            Petugas siswa XI.VI
+        </p>
+
+    </div>
+
+    <div class="structure-wrapper reveal">
+        <div class="title-main">STRUKTUR KELAS</div>
+        <div class="title-sub" id="structureClassName">XI.VI</div>
+
+        <div class="tree-container" id="structureTree">
+            <!-- diisi oleh JS -->
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= MEMBERS ================= -->
+
+<section id="members">
+
+    <div class="section-title">
+
+        <h2>
+            Daftar <span>Famiglia</span>
+        </h2>
+
+        <p>
+            42 anggota kelas
+        </p>
+
+    </div>
+
+
+    <div class="members-wrapper reveal">
+
+        <table class="member-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+
+                    <th>Nama Lengkap</th>
+
+                    <th>Tanggal Lahir</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="memberList"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCHEDULE ================= -->
+
+<section id="schedule">
+
+    <div class="section-title">
+
+        <h2>
+            Pembagian <span>Tugas</span>
+        </h2>
+
+        <p>
+            Jadwal kebersihan kelas
+        </p>
+
+    </div>
+
+
+    <div class="schedule-grid reveal" id="scheduleGrid"></div>
+
+</section>
+
+
+<!-- ================= PORTFOLIO ================= -->
+
+<section id="portfolio">
+
+    <div class="section-title">
+
+        <h2>
+            Arsip <span>Famiglia</span>
+        </h2>
+
+        <p>
+            Kegiatan dan kenangan kelas kita
+        </p>
+
+    </div>
+
+
+    <div class="portfolio-grid reveal" id="portfolioGrid"></div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>
+            Hubungi <span>Famiglia</span>
+        </h2>
+
+        <p>
+            Temukan kelas kita di media sosial
+        </p>
+
+    </div>
+
+
+    <div class="contact-box reveal">
+
+        <h2 id="contactClass"></h2>
+
+        <p>
+            Follow media sosial kelas untuk mendapatkan
+            informasi dan update terbaru.
+        </p>
+
+
+        <div class="socials">
+
+            <a id="instagram" href="#" target="_blank">
+                <img src="media/instagram.jpg" alt="Instagram">
+            </a>
+
+            <a id="tiktok" href="#" target="_blank">
+                <img src="media/tiktok.jpg" alt="TikTok">
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ARROWS ================= -->
+
+<div class="scroll-arrows">
+
+    <div class="arrow" onclick="scrollPage(-1)">
+        ↑
+    </div>
+
+    <div class="arrow" onclick="scrollPage(1)">
+        ↓
+    </div>
+
+</div>
+
+
+<!-- ================= FIXED MUSIC PLAYER ================= -->
+<div class="music-player" id="musicPlayer">
+    <div class="music-left">
+        <div class="music-cover" id="musicCover">
+            <span>♪</span>
+        </div>
+        <div class="music-info">
+            <div class="music-title" id="musicTitle">La Famiglia — Theme</div>
+            <div class="music-artist" id="musicArtist">XI.VI • Official Soundtrack</div>
+        </div>
+    </div>
+
+    <div class="music-controls">
+        <button class="music-btn" id="musicPrev" aria-label="Previous">↶</button>
+        <button class="music-btn play-btn" id="musicPlay" aria-label="Play">▶</button>
+        <button class="music-btn" id="musicNext" aria-label="Next">↷</button>
+    </div>
+
+    <div class="music-progress-wrap">
+        <span id="musicCurrent">0:00</span>
+        <div class="music-progress" id="musicProgress">
+            <div class="music-progress-fill" id="musicProgressFill"></div>
+        </div>
+        <span id="musicDuration">0:00</span>
+    </div>
+
+    <div class="music-volume-wrap">
+        <span>🔊</span>
+        <input type="range" id="musicVolume" min="0" max="1" step="0.01" value="0.8">
+    </div>
+
+    <button class="music-close" id="musicClose" aria-label="Hide player">×</button>
+</div>
+
+<button class="music-mini" id="musicMini" aria-label="Show music player">♪</button>
+
+<audio id="musicAudio" preload="metadata"></audio>
+
+<script>
+
+/* =====================================================
+   EDIT BAGIAN INI SAJA
+   ===================================================== */
+
+const DATA = {
+
+    logo:
+        "LA FAMIGLIA.",
+
+    slogan:
+        "Una Classe, Una Famiglia",
+
+    namaKelas:
+        "XI.VI",
+
+    deskripsiHome:
+        "Selamat datang di markas resmi XI.VI. Di sini tersimpan struktur keluarga, jadwal tugas, arsip kegiatan, dan berbagai cerita yang membentuk satu keluarga besar.",
+
+
+    /* ================= FOTO ================= */
+
+    foto:
+        "https://i.ibb.co.com/Ldnh3Skn/Whats-App-Image-2026-08-09-at-22-58-24.jpg",
+
+
+    /* ================= TENTANG ================= */
+
+    tentang:
+        "Kami bukan sekadar satu kelas. Kami adalah satu keluarga yang tumbuh bersama, menjaga satu sama lain, dan mengumpulkan cerita dari setiap hari yang kami lewati. Website ini menjadi arsip keluarga XI.VI — tempat nama, tugas, kegiatan, dan kenangan disimpan dengan gaya klasik La Famiglia.",
+
+    waliKelas:
+        "Bu Fiqoh",
+
+    ruangKelas:
+        "XI.VI / 9.6",
+
+    angkatan:
+        "2025 - 2027",
+
+
+    /* ================= SOSMED ================= */
+
+    instagram:
+        "https://www.instagram.com/exclutive.ninesixx?igsh=MTd1bHlneWZ3dnhydg==",
+
+    tiktok:
+        "https://tiktok.com/@akun_kelas",
+
+    spotify:
+        "https://open.spotify.com/playlist/xxx",
+
+
+    /* ================= STRUKTUR KELAS ================= */
+
+    structure: [
+        { role: "WALI KELAS", name: "Bu Wafiqoh Zakiah" },
+        { role: "KETUA KELAS", name: "Angela Keiko Putong" },
+        { role: "WAKIL KETUA", name: "Cahya Rizqi" },
+        { role: "SEKRETARIS 1", name: "Aisyah Qurratu Aini" },
+        { role: "SEKRETARIS 2", name: "Hanifah Fitria Alfariska" },
+        { role: "BENDAHARA 1", name: "Nareswari Alvia Zahra" },
+        { role: "BENDAHARA 2", name: "Desti Dwi Felliana" }
+    ],
+
+
+    /* ================= 42 ANGGOTA ================= */
+
+    members:[
+
+        ["Nama Anggota 1","01 Januari 2010"],
+        ["Nama Anggota 2","02 Februari 2010"],
+        ["Nama Anggota 3","03 Maret 2010"],
+        ["Nama Anggota 4","04 April 2010"],
+        ["Nama Anggota 5","05 Mei 2010"],
+        ["Nama Anggota 6","06 Juni 2010"],
+        ["Nama Anggota 7","07 Juli 2010"],
+        ["Nama Anggota 8","08 Agustus 2010"],
+        ["Nama Anggota 9","09 September 2010"],
+        ["Nama Anggota 10","10 Oktober 2010"],
+        ["Nama Anggota 11","11 November 2010"],
+        ["Nama Anggota 12","12 Desember 2010"],
+        ["Nama Anggota 13","01 Januari 2010"],
+        ["Nama Anggota 14","02 Februari 2010"],
+        ["Nama Anggota 15","03 Maret 2010"],
+        ["Nama Anggota 16","04 April 2010"],
+        ["Nama Anggota 17","05 Mei 2010"],
+        ["Nama Anggota 18","06 Juni 2010"],
+        ["Nama Anggota 19","07 Juli 2010"],
+        ["Nama Anggota 20","08 Agustus 2010"],
+        ["Nama Anggota 21","09 September 2010"],
+        ["Nama Anggota 22","10 Oktober 2010"],
+        ["Nama Anggota 23","11 November 2010"],
+        ["Nama Anggota 24","12 Desember 2010"],
+        ["Nama Anggota 25","01 Januari 2010"],
+        ["Nama Anggota 26","02 Februari 2010"],
+        ["Nama Anggota 27","03 Maret 2010"],
+        ["Nama Anggota 28","04 April 2010"],
+        ["Nama Anggota 29","05 Mei 2010"],
+        ["Nama Anggota 30","06 Juni 2010"],
+        ["Nama Anggota 31","07 Juli 2010"],
+        ["Nama Anggota 32","08 Agustus 2010"],
+        ["Nama Anggota 33","09 September 2010"],
+        ["Nama Anggota 34","10 Oktober 2010"],
+        ["Nama Anggota 35","11 November 2010"],
+        ["Nama Anggota 36","12 Desember 2010"],
+        ["Nama Anggota 37","01 Januari 2010"],
+        ["Nama Anggota 38","02 Februari 2010"],
+        ["Nama Anggota 39","03 Maret 2010"],
+        ["Nama Anggota 40","04 April 2010"],
+        ["Nama Anggota 41","05 Mei 2010"],
+        ["Nama Anggota 42","06 Juni 2010"]
+
+    ],
+
+
+    /* ================= JADWAL ================= */
+
+    schedule: [
+        {
+            day: "Senin",
+            members: [
+                "Altamis Malik Devin",
+                "Kaesar Rafan Al Fathin Junio",
+                "Muhammad Faathir Iskandar",
+                "Raffly Gustian Rahmansyah",
+                "Syifa Azzahra",
+                "Alya Dwi Putri",
+                "Desti Dwi Felliana",
+                "Khanza Nauzia Novalina",
+                "Shaira Asha Pramudya"
+            ]
+        },
+
+        {
+            day: "Selasa",
+            members: [
+                "Abdul Fatir Al Azam Lili",
+                "Muhammad Agil Ramdhan L",
+                "Muhammad Valen J.H",
+                "Trubus Rizki Anugrah",
+                "Ainayyah Haura Nadlifah",
+                "Angela Keiko Putong",
+                "Dzikryani Alma Safira",
+                "Nareswari Alvia Zahra"
+            ]
+        },
+
+        {
+            day: "Rabu",
+            members: [
+                "Diedjoe Alexshandy C.",
+                "Naufal Nur Hakim",
+                "Muhammad Eray Alkhalifi A.E",
+                "Adhwaa Nu'maa",
+                "Alicya Nadin Nabillah A.P",
+                "Ayra Nuriel Nafisha",
+                "Jihan Anindita Indriyani",
+                "Riski Aldi Pahri",
+                "Rizky Deniansyah Sudirman"
+            ]
+        },
+
+        {
+            day: "Kamis",
+            members: [
+                "Athar Ibrahimovic Albahi",
+                "Faiz Hylmi Triaji",
+                "Muhammad Hafizh",
+                "Wildan Saktiawan",
+                "Afrina Alya Inzaki",
+                "Alvaro Ivander Labdagati",
+                "Disky Alif Firmansyah",
+                "Malika Olivia Zahra"
+            ]
+        },
+
+        {
+            day: "Jumat",
+            members: [
+                "Cahya Rizqi",
+                "Ibnu Khodami",
+                "Nicko Aditya Prabowo",
+                "Tita Aldila Zilvia",
+                "Aisyah Qurratu Aini",
+                "Aqil Aleindra",
+                "Hanifah Fitria Alfariska",
+                "Nikita Sari"
+            ]
+        }
+    ],
+
+
+    /* ================= PORTFOLIO ================= */
+
+    portfolio:[
+
+        {
+            icon:"◉",
+            title:"Foto Kelas",
+            text:"Kumpulan foto dan kenangan bersama teman-teman kelas."
+        },
+
+        {
+            icon:"✦",
+            title:"Acara Kelas",
+            text:"Berbagai kegiatan dan acara yang pernah kita lakukan."
+        },
+
+        {
+            icon:"♛",
+            title:"Prestasi",
+            text:"Prestasi dan pencapaian anggota kelas."
+        },
+
+        {
+            icon:"✧",
+            title:"Kenangan",
+            text:"Cerita dan momen yang tidak akan terlupakan."
+        },
+
+        {
+            icon:"◆",
+            title:"Kegiatan",
+            text:"Kegiatan olahraga, belajar, dan bermain bersama."
+        },
+
+        {
+            icon:"★",
+            title:"Momen Spesial",
+            text:"Momen-momen spesial yang menjadi cerita kelas."
+        }
+
+    ]
+
+};
+
+
+/* =====================================================
+   DATA KE WEBSITE
+   ===================================================== */
+
+document.getElementById("logo").textContent =
+    DATA.logo;
+
+document.getElementById("slogan").textContent =
+    DATA.slogan;
+
+document.getElementById("namaKelas").textContent =
+    DATA.namaKelas;
+
+document.getElementById("deskripsiHome").textContent =
+    DATA.deskripsiHome;
+
+document.getElementById("tentang").textContent =
+    DATA.tentang;
+
+document.getElementById("waliKelas").textContent =
+    DATA.waliKelas;
+
+document.getElementById("ruangKelas").textContent =
+    DATA.ruangKelas;
+
+document.getElementById("angkatan").textContent =
+    DATA.angkatan;
+
+document.getElementById("contactClass").textContent =
+    DATA.namaKelas;
+
+document.getElementById("structureClassName").textContent =
+    DATA.namaKelas;
+
+
+/* ================= FOTO ================= */
+
+document.getElementById("fotoKelas").src =
+    DATA.foto;
+
+
+/* ================= SOSMED ================= */
+
+document.getElementById("instagram").href =
+    DATA.instagram;
+
+document.getElementById("tiktok").href =
+    DATA.tiktok;
+
+document.getElementById("instagramSidebar").href =
+    DATA.instagram;
+
+document.getElementById("tiktokSidebar").href =
+    DATA.tiktok;
+
+document.getElementById("instagramMedia").href =
+    DATA.instagram;
+
+document.getElementById("tiktokMedia").href =
+    DATA.tiktok;
+
+document.getElementById("spotifyLink").href =
+    DATA.spotify;
+
+
+/* ================= STRUKTUR - TREE / SILSILAH ================= */
+
+const structureTree = document.getElementById("structureTree");
+
+const structureData = {
+    wali: DATA.structure[0],
+    ketua: DATA.structure[1],
+    wakil: DATA.structure[2],
+    sekretaris1: DATA.structure[3],
+    sekretaris2: DATA.structure[4],
+    bendahara1: DATA.structure[5],
+    bendahara2: DATA.structure[6]
+};
+
+let html = '';
+
+html += `
+    <div class="tree-level-1">
+        <div class="tree-node">
+            <span class="role">${structureData.wali.role}</span>
+            <span class="name">${structureData.wali.name}</span>
+        </div>
+    </div>
+`;
+
+html += `<div class="tree-line-vertical"></div>`;
+
+html += `
+    <div class="tree-line-horizontal">
+        <div class="line-left"></div>
+        <div class="line-center"></div>
+        <div class="line-right"></div>
+    </div>
+`;
+
+html += `
+    <div class="tree-level-2">
+        <div class="tree-node">
+            <span class="role">${structureData.ketua.role}</span>
+            <span class="name">${structureData.ketua.name}</span>
+        </div>
+        <div class="tree-node">
+            <span class="role">${structureData.wakil.role}</span>
+            <span class="name">${structureData.wakil.name}</span>
+        </div>
+    </div>
+`;
+
+html += `
+    <div class="tree-branch-connector">
+        <div class="branch-line"></div>
+        <div class="branch-line"></div>
+        <div class="branch-horizontal"></div>
+    </div>
+`;
+
+html += `
+    <div class="tree-level-3">
+        <div class="tree-node">
+            <span class="role">${structureData.sekretaris1.role}</span>
+            <span class="name">${structureData.sekretaris1.name}</span>
+        </div>
+        <div class="tree-node">
+            <span class="role">${structureData.sekretaris2.role}</span>
+            <span class="name">${structureData.sekretaris2.name}</span>
+        </div>
+        <div class="tree-node">
+            <span class="role">${structureData.bendahara1.role}</span>
+            <span class="name">${structureData.bendahara1.name}</span>
+        </div>
+        <div class="tree-node">
+            <span class="role">${structureData.bendahara2.role}</span>
+            <span class="name">${structureData.bendahara2.name}</span>
+        </div>
+    </div>
+`;
+
+structureTree.innerHTML = html;
+
+
+/* ================= ANGGOTA ================= */
+
+const memberList =
+    document.getElementById("memberList");
+
+DATA.members.forEach((member,index)=>{
+
+    const row =
+        document.createElement("tr");
+
+    row.innerHTML = `
+
+        <td>${index + 1}</td>
+
+        <td>
+            <strong>${member[0]}</strong>
+        </td>
+
+        <td>
+            ${member[1]}
+        </td>
+
+    `;
+
+    memberList.appendChild(row);
+
+});
+
+
+/* ================= JADWAL ================= */
+
+const scheduleGrid =
+    document.getElementById("scheduleGrid");
+
+DATA.schedule.forEach(day=>{
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "day-card reveal";
+
+    let list = "";
+
+    day.members.forEach(name=>{
+
+        list += `
+            <p>◆ ${name}</p>
+        `;
+
+    });
+
+    card.innerHTML = `
+
+        <h3>${day.day}</h3>
+
+        ${list}
+
+    `;
+
+    scheduleGrid.appendChild(card);
+
+});
+
+
+/* ================= PORTFOLIO ================= */
+
+const portfolioGrid =
+    document.getElementById("portfolioGrid");
+
+DATA.portfolio.forEach(item=>{
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "portfolio-card reveal";
+
+    card.innerHTML = `
+
+        <div class="icon">
+            ${item.icon}
+        </div>
+
+        <h3>
+            ${item.title}
+        </h3>
+
+        <p>
+            ${item.text}
+        </p>
+
+    `;
+
+    portfolioGrid.appendChild(card);
+
+});
+
+
+/* ================= SCROLL ================= */
+
+const sections =
+    document.querySelectorAll("section");
+
+let currentSection = 0;
+
+
+function scrollPage(direction){
+
+    currentSection += direction;
+
+    if(currentSection < 0){
+        currentSection = 0;
+    }
+
+    if(currentSection >= sections.length){
+        currentSection = sections.length - 1;
+    }
+
+    sections[currentSection].scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ================= NAV ACTIVE ================= */
+
+const navLinks =
+    document.querySelectorAll("nav a");
+
+const observer =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    navLinks.forEach(link=>{
+                        link.classList.remove("active");
+                    });
+
+                    const active =
+                        document.querySelector(
+                            `nav a[href="#${entry.target.id}"]`
+                        );
+
+                    if(active){
+                        active.classList.add("active");
+                    }
+
+                    currentSection =
+                        [...sections].indexOf(
+                            entry.target
+                        );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.55
+        }
+    );
+
+
+sections.forEach(section=>{
+    observer.observe(section);
+});
+
+
+/* ================= REVEAL ================= */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.15
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element=>{
+        revealObserver.observe(element);
+    });
+
+
+/* ================= KEYBOARD ================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key === "ArrowDown"){
+            scrollPage(1);
+        }
+
+        if(event.key === "ArrowUp"){
+            scrollPage(-1);
+        }
+
+    }
+);
+
+
+
+/* ================= MUSIC PLAYER ================= */
+
+(function initFamigliaMusic(){
+
+    const MUSIC_CONFIG = {
+        title: "La Famiglia — Theme",
+        artist: "XI.VI • Official Soundtrack",
+        audioUrl: "media/music.mp3",
+        coverUrl: ""
+    };
+
+    const audio = document.getElementById("musicAudio");
+    const play = document.getElementById("musicPlay");
+    const prev = document.getElementById("musicPrev");
+    const next = document.getElementById("musicNext");
+    const title = document.getElementById("musicTitle");
+    const artist = document.getElementById("musicArtist");
+    const cover = document.getElementById("musicCover");
+    const current = document.getElementById("musicCurrent");
+    const duration = document.getElementById("musicDuration");
+    const progress = document.getElementById("musicProgress");
+    const fill = document.getElementById("musicProgressFill");
+    const player = document.getElementById("musicPlayer");
+    const close = document.getElementById("musicClose");
+    const mini = document.getElementById("musicMini");
+    const volumeSlider = document.getElementById("musicVolume");
+
+    if(!audio || !play || !player){
+        console.error("Music player HTML tidak ditemukan.");
+        return;
+    }
+
+    title.textContent = MUSIC_CONFIG.title;
+    artist.textContent = MUSIC_CONFIG.artist;
+
+    if(MUSIC_CONFIG.audioUrl){
+        audio.src = MUSIC_CONFIG.audioUrl;
+    }
+
+    if(MUSIC_CONFIG.coverUrl){
+        cover.innerHTML = '<img src="' + MUSIC_CONFIG.coverUrl + '" alt="Cover lagu">';
+    }
+
+    function formatTime(seconds){
+        if(!Number.isFinite(seconds)) return "0:00";
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60).toString().padStart(2,"0");
+        return min + ":" + sec;
+    }
+
+    function updateButton(){
+        const playing = !audio.paused && !audio.ended;
+        play.textContent = playing ? "Ⅱ" : "▶";
+        cover.classList.toggle("playing", playing);
+    }
+
+    volumeSlider.addEventListener("input", function(){
+        audio.volume = parseFloat(this.value);
+    });
+
+    audio.volume = parseFloat(volumeSlider.value);
+
+    play.addEventListener("click", async function(){
+        if(!audio.src){
+            alert("File musik belum ditemukan.");
+            return;
+        }
+
+        try{
+            if(audio.paused){
+                await audio.play();
+            }else{
+                audio.pause();
+            }
+        }catch(error){
+            console.error("Audio gagal diputar:", error);
+            alert("Musik gagal diputar. Pastikan file music.mp3 ada di folder music.");
+        }
+    });
+
+    audio.addEventListener("loadedmetadata", function(){
+        duration.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", function(){
+        current.textContent = formatTime(audio.currentTime);
+        if(audio.duration){
+            fill.style.width = ((audio.currentTime / audio.duration) * 100) + "%";
+        }
+    });
+
+    audio.addEventListener("play", updateButton);
+    audio.addEventListener("pause", updateButton);
+
+    audio.addEventListener("ended", function(){
+        audio.currentTime = 0;
+        updateButton();
+        fill.style.width = "0%";
+        current.textContent = "0:00";
+    });
+
+    let isDragging = false;
+
+    progress.addEventListener("pointerdown", function(event){
+        isDragging = true;
+        progress.setPointerCapture(event.pointerId);
+        updateProgress(event);
+    });
+
+    progress.addEventListener("pointermove", function(event){
+        if(isDragging){
+            updateProgress(event);
+        }
+    });
+
+    progress.addEventListener("pointerup", function(){
+        isDragging = false;
+    });
+
+    progress.addEventListener("pointercancel", function(){
+        isDragging = false;
+    });
+
+    function updateProgress(event){
+        if(!audio.duration) return;
+        const rect = progress.getBoundingClientRect();
+        const percent = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+        audio.currentTime = percent * audio.duration;
+    }
+
+    prev.addEventListener("click", function(){
+        audio.currentTime = Math.max(0, audio.currentTime - 10);
+    });
+
+    next.addEventListener("click", function(){
+        if(audio.duration){
+            audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+        }
+    });
+
+    close.addEventListener("click", function(){
+        player.classList.add("hidden");
+        mini.classList.add("show");
+    });
+
+    mini.addEventListener("click", function(){
+        player.classList.remove("hidden");
+        mini.classList.remove("show");
+    });
+
+    let dragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    player.addEventListener("pointerdown", function(event){
+        if(event.target.closest("button") || event.target.closest(".music-progress") || event.target.closest(".music-volume-wrap")) return;
+
+        const rect = player.getBoundingClientRect();
+        offsetX = event.clientX - rect.left;
+        offsetY = event.clientY - rect.top;
+        dragging = true;
+
+        player.style.left = rect.left + "px";
+        player.style.top = rect.top + "px";
+        player.style.right = "auto";
+        player.style.bottom = "auto";
+        player.style.transform = "none";
+        player.classList.add("dragging");
+
+        try{ player.setPointerCapture(event.pointerId); }catch(e){}
+        event.preventDefault();
+    });
+
+    player.addEventListener("pointermove", function(event){
+        if(!dragging) return;
+
+        const maxX = Math.max(8, window.innerWidth - player.offsetWidth - 8);
+        const maxY = Math.max(8, window.innerHeight - player.offsetHeight - 8);
+
+        const x = Math.max(8, Math.min(maxX, event.clientX - offsetX));
+        const y = Math.max(8, Math.min(maxY, event.clientY - offsetY));
+
+        player.style.left = x + "px";
+        player.style.top = y + "px";
+    });
+
+    function stopDrag(){
+        if(!dragging) return;
+        dragging = false;
+        player.classList.remove("dragging");
+
+        try{
+            localStorage.setItem("famigliaMusicPosition", JSON.stringify({
+                left: player.style.left,
+                top: player.style.top
+            }));
+        }catch(e){}
+    }
+
+    player.addEventListener("pointerup", stopDrag);
+    player.addEventListener("pointercancel", stopDrag);
+
+    try{
+        const saved = JSON.parse(localStorage.getItem("famigliaMusicPosition"));
+        if(saved && saved.left && saved.top){
+            player.style.left = saved.left;
+            player.style.top = saved.top;
+            player.style.right = "auto";
+            player.style.bottom = "auto";
+            player.style.transform = "none";
+        }
+    }catch(e){}
+
+    document.addEventListener("keydown", function(event){
+        const tag = document.activeElement && document.activeElement.tagName;
+        if(event.code === "Space" && !["INPUT","TEXTAREA","BUTTON"].includes(tag)){
+            event.preventDefault();
+            play.click();
+        }
+    });
+
+})();
+
+function startFamilyMusic(){
+
+    var audio = document.getElementById("musicAudio");
+
+    if(!audio || !audio.src){
+        return;
+    }
+
+    var promise = audio.play();
+
+    if(promise !== undefined){
+
+        promise.catch(function(){
+
+            function unlockMusic(){
+
+                audio.play().catch(function(){});
+
+                document.removeEventListener(
+                    "click",
+                    unlockMusic
+                );
+
+                document.removeEventListener(
+                    "touchstart",
+                    unlockMusic
+                );
+
+            }
+
+            document.addEventListener(
+                "click",
+                unlockMusic,
+                {once:true}
+            );
+
+            document.addEventListener(
+                "touchstart",
+                unlockMusic,
+                {once:true}
+            );
+
+        });
+
+    }
+
+}
+
+if(document.readyState === "loading"){
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        startFamilyMusic,
+        {once:true}
+    );
+
+}else{
+
+    startFamilyMusic();
+
+}
+
+</script>
+
+
+</body>
+</html>
