@@ -193,6 +193,7 @@ section::after{
     margin-bottom:20px;
     color:var(--cream);
     text-shadow:3px 3px 0 #000,0 0 30px rgba(201,164,92,.12);
+    min-height:80px;
 }
 
 .home-content h1 span{
@@ -982,7 +983,7 @@ section::after{
     .home-content p{margin:auto;}
     .home-buttons{justify-content:center;flex-wrap:wrap;}
     .home-image{width:240px;height:240px;}
-    .home-content h1{font-size:40px;}
+    .home-content h1{font-size:40px;min-height:60px;}
     .info-cards{grid-template-columns:1fr;}
     .section-title h2{font-size:27px;}
     .scroll-arrows{right:10px;}
@@ -2581,8 +2582,60 @@ if(document.readyState === "loading"){
 }else{
 
     startFamilyMusic();
-
 }
+
+/* ================= ANIMASI TEKS BERUBAH ================= */
+
+// Animasi teks berubah dengan efek mengetik dan menghapus
+const textElement = document.getElementById("namaKelas");
+const textArray = ["XI.VI", "Part Of SMPN 9 Tangsel"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let isWaiting = false;
+
+function typeEffect() {
+    const currentText = textArray[textIndex];
+    
+    if (isDeleting) {
+        // Menghapus karakter
+        charIndex--;
+        textElement.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % textArray.length;
+            isWaiting = true;
+            setTimeout(() => {
+                isWaiting = false;
+                typeEffect();
+            }, 800);
+            return;
+        }
+        
+        setTimeout(typeEffect, 50);
+    } else {
+        // Mengetik karakter
+        charIndex++;
+        textElement.textContent = currentText.substring(0, charIndex);
+        
+        if (charIndex === currentText.length) {
+            // Selesai mengetik, tunggu sebentar lalu hapus
+            setTimeout(() => {
+                isDeleting = true;
+                typeEffect();
+            }, 2000);
+            return;
+        }
+        
+        // Kecepatan mengetik
+        const speed = Math.random() * 60 + 40;
+        setTimeout(typeEffect, speed);
+    }
+}
+
+// Mulai animasi setelah halaman dimuat
+setTimeout(typeEffect, 800);
 
 </script>
 
