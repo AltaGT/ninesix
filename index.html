@@ -38,8 +38,10 @@ body{
     color:var(--cream);
     overflow-x:hidden;
     background:
-        radial-gradient(circle at 50% 0%, rgba(141,39,50,.28), transparent 32%),
-        linear-gradient(135deg,#050505 0%,#0b0b0b 45%,#1b0b0e 100%);
+        radial-gradient(circle at 50% 0%, rgba(141,39,50,.35), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(100,21,29,.4), transparent 40%),
+        radial-gradient(circle at 20% 60%, rgba(53,9,15,.5), transparent 50%),
+        linear-gradient(145deg, #0a0a0a 0%, #1a0a0e 30%, #0d0508 70%, #000000 100%);
 }
 
 body::before{
@@ -48,10 +50,10 @@ body::before{
     inset:0;
     pointer-events:none;
     z-index:-2;
-    opacity:.16;
+    opacity:.12;
     background-image:
-        repeating-linear-gradient(90deg,transparent 0 44px,rgba(255,255,255,.08) 45px 46px),
-        repeating-linear-gradient(0deg,transparent 0 44px,rgba(255,255,255,.04) 45px 46px);
+        repeating-linear-gradient(90deg,transparent 0 44px,rgba(255,255,255,.06) 45px 46px),
+        repeating-linear-gradient(0deg,transparent 0 44px,rgba(255,255,255,.03) 45px 46px);
 }
 
 body::after{
@@ -60,7 +62,7 @@ body::after{
     inset:0;
     pointer-events:none;
     z-index:-1;
-    background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.65) 100%);
+    background:radial-gradient(circle at center,transparent 30%,rgba(0,0,0,.7) 100%);
 }
 
 /* ================= BACKGROUND ANIMATION ================= */
@@ -73,32 +75,34 @@ body::after{
     pointer-events:none;
 }
 
-/* Smoke/Fog effect */
+/* Smoke/Fog effect - lebih gelap dan merah */
 .smoke-layer {
     position:absolute;
     inset:0;
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(100,21,29,.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 30%, rgba(201,164,92,.08) 0%, transparent 40%),
-        radial-gradient(ellipse at 50% 80%, rgba(100,21,29,.10) 0%, transparent 45%);
-    animation: smokeDrift 20s ease-in-out infinite alternate;
+        radial-gradient(ellipse at 20% 50%, rgba(100,21,29,.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 30%, rgba(201,164,92,.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 80%, rgba(53,9,15,.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(100,21,29,.15) 0%, transparent 35%);
+    animation: smokeDrift 18s ease-in-out infinite alternate;
 }
 
 .smoke-layer-2 {
     position:absolute;
     inset:0;
     background:
-        radial-gradient(ellipse at 70% 60%, rgba(201,164,92,.06) 0%, transparent 35%),
-        radial-gradient(ellipse at 30% 20%, rgba(100,21,29,.12) 0%, transparent 40%);
-    animation: smokeDrift 25s ease-in-out infinite alternate-reverse;
+        radial-gradient(ellipse at 70% 60%, rgba(201,164,92,.04) 0%, transparent 35%),
+        radial-gradient(ellipse at 30% 20%, rgba(100,21,29,.2) 0%, transparent 45%),
+        radial-gradient(ellipse at 60% 80%, rgba(53,9,15,.2) 0%, transparent 40%);
+    animation: smokeDrift 22s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes smokeDrift {
-    0% { transform: scale(1) translate(0, 0); opacity: .6; }
-    100% { transform: scale(1.1) translate(30px, -20px); opacity: 1; }
+    0% { transform: scale(1) translate(0, 0); opacity: .7; }
+    100% { transform: scale(1.08) translate(20px, -15px); opacity: 1; }
 }
 
-/* Falling particles - like money or confetti */
+/* Falling particles - lebih cepat */
 .particle-container {
     position:absolute;
     inset:0;
@@ -107,11 +111,11 @@ body::after{
 
 .particle {
     position:absolute;
-    top:-20px;
-    width:30px;
-    height:15px;
+    top:-30px;
+    width:28px;
+    height:14px;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    border:1px solid rgba(201,164,92,.3);
+    border:1px solid rgba(201,164,92,.4);
     border-radius:2px;
     opacity:0;
     animation: fall linear infinite;
@@ -119,15 +123,15 @@ body::after{
 }
 
 .particle:nth-child(odd) {
-    background: linear-gradient(135deg, var(--wine), var(--wine-light));
-    border-color: rgba(100,21,29,.3);
-    width:25px;
-    height:12px;
+    background: linear-gradient(135deg, var(--wine-light), var(--wine));
+    border-color: rgba(100,21,29,.4);
+    width:22px;
+    height:11px;
 }
 
 .particle:nth-child(3n) {
-    width:20px;
-    height:10px;
+    width:18px;
+    height:9px;
     background: linear-gradient(135deg, #c9a45c, #f0d080);
 }
 
@@ -137,21 +141,21 @@ body::after{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    font-size:8px;
+    font-size:7px;
     font-weight:700;
-    color:rgba(0,0,0,.4);
+    color:rgba(0,0,0,.35);
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(0) rotate(0deg) scale(0.8);
+        transform: translateY(0) rotate(0deg) scale(0.6);
         opacity:0;
     }
-    5% {
-        opacity:0.6;
+    8% {
+        opacity:0.7;
     }
-    90% {
-        opacity:0.6;
+    92% {
+        opacity:0.7;
     }
     100% {
         transform: translateY(110vh) rotate(720deg) scale(1);
@@ -159,99 +163,132 @@ body::after{
     }
 }
 
-/* Glow orbs */
+/* Glow orbs - lebih merah */
 .glow-orb {
     position:absolute;
     border-radius:50%;
-    filter:blur(60px);
-    opacity:.3;
+    filter:blur(70px);
+    opacity:.35;
     animation: orbFloat 15s ease-in-out infinite alternate;
 }
 
 .glow-orb-1 {
-    width:300px;
-    height:300px;
+    width:350px;
+    height:350px;
     background:var(--wine);
-    top:10%;
-    left:-5%;
+    top:5%;
+    left:-8%;
     animation-delay:0s;
+    opacity:.4;
 }
 
 .glow-orb-2 {
-    width:250px;
-    height:250px;
-    background:var(--gold);
-    bottom:20%;
-    right:-5%;
+    width:280px;
+    height:280px;
+    background:var(--wine-dark);
+    bottom:15%;
+    right:-8%;
     animation-delay:5s;
-    opacity:.2;
+    opacity:.3;
 }
 
 .glow-orb-3 {
-    width:200px;
-    height:200px;
+    width:220px;
+    height:220px;
     background:var(--wine-light);
-    top:50%;
-    left:50%;
+    top:55%;
+    left:45%;
     transform:translate(-50%,-50%);
     animation-delay:10s;
-    opacity:.15;
+    opacity:.2;
+}
+
+.glow-orb-4 {
+    width:180px;
+    height:180px;
+    background:#2a0a0f;
+    top:30%;
+    right:20%;
+    animation-delay:3s;
+    opacity:.5;
 }
 
 @keyframes orbFloat {
     0% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(40px, -30px) scale(1.2); }
-    66% { transform: translate(-20px, 40px) scale(0.9); }
-    100% { transform: translate(30px, -20px) scale(1.1); }
+    33% { transform: translate(50px, -40px) scale(1.15); }
+    66% { transform: translate(-30px, 50px) scale(0.9); }
+    100% { transform: translate(40px, -30px) scale(1.05); }
 }
 
-/* Floating text "LA FAMIGLIA" in background */
+/* Floating text "LA FAMIGLIA" */
 .floating-text {
     position:absolute;
     font-family:'Cinzel',serif;
     font-weight:800;
-    font-size:120px;
-    color:rgba(201,164,92,.03);
-    letter-spacing:15px;
+    font-size:140px;
+    color:rgba(100,21,29,.06);
+    letter-spacing:18px;
     white-space:nowrap;
     top:50%;
     left:50%;
-    transform:translate(-50%,-50%) rotate(-5deg);
-    animation: floatText 30s linear infinite;
+    transform:translate(-50%,-50%) rotate(-4deg);
+    animation: floatText 25s linear infinite;
+    pointer-events:none;
+    user-select:none;
+}
+
+.floating-text-2 {
+    position:absolute;
+    font-family:'Cinzel',serif;
+    font-weight:800;
+    font-size:80px;
+    color:rgba(53,9,15,.05);
+    letter-spacing:12px;
+    white-space:nowrap;
+    bottom:15%;
+    right:-10%;
+    transform:rotate(8deg);
+    animation: floatText2 30s linear infinite;
     pointer-events:none;
     user-select:none;
 }
 
 @keyframes floatText {
-    0% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); opacity:.03; }
-    50% { transform: translate(-50%, -50%) rotate(2deg) scale(1.05); opacity:.06; }
-    100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); opacity:.03; }
+    0% { transform: translate(-50%, -50%) rotate(-4deg) scale(1); opacity:.05; }
+    50% { transform: translate(-50%, -50%) rotate(2deg) scale(1.04); opacity:.09; }
+    100% { transform: translate(-50%, -50%) rotate(-4deg) scale(1); opacity:.05; }
 }
 
-/* Crime scene tape style border */
+@keyframes floatText2 {
+    0% { transform: rotate(8deg) translateX(0); opacity:.04; }
+    50% { transform: rotate(6deg) translateX(-30px); opacity:.08; }
+    100% { transform: rotate(8deg) translateX(0); opacity:.04; }
+}
+
+/* Crime scene tape */
 .crime-tape {
     position:fixed;
     bottom:0;
     left:0;
     width:100%;
-    height:4px;
+    height:3px;
     background: repeating-linear-gradient(
         90deg,
         var(--gold) 0px,
-        var(--gold) 20px,
-        #000 20px,
-        #000 25px,
-        var(--gold) 25px,
-        var(--gold) 45px
+        var(--gold) 18px,
+        #000 18px,
+        #000 22px,
+        var(--gold) 22px,
+        var(--gold) 40px
     );
     z-index:999;
-    opacity:.5;
-    animation: tapeMove 4s linear infinite;
+    opacity:.6;
+    animation: tapeMove 3s linear infinite;
 }
 
 @keyframes tapeMove {
     0% { background-position: 0 0; }
-    100% { background-position: 50px 0; }
+    100% { background-position: 40px 0; }
 }
 
 /* ================= HEADER ================= */
@@ -266,10 +303,10 @@ header{
     align-items:center;
     justify-content:space-between;
     padding:0 5%;
-    background:rgba(7,7,7,.94);
-    border-bottom:1px solid rgba(201,164,92,.5);
-    box-shadow:0 8px 30px rgba(0,0,0,.5);
-    backdrop-filter:blur(10px);
+    background:rgba(7,7,7,.96);
+    border-bottom:1px solid rgba(201,164,92,.4);
+    box-shadow:0 8px 30px rgba(0,0,0,.7);
+    backdrop-filter:blur(12px);
     z-index:1000;
 }
 
@@ -279,7 +316,7 @@ header{
     font-size:20px;
     letter-spacing:3px;
     font-weight:800;
-    text-shadow:0 0 18px rgba(201,164,92,.2);
+    text-shadow:0 0 25px rgba(201,164,92,.15);
 }
 
 nav{display:flex;gap:24px;}
@@ -326,9 +363,9 @@ section::before{
     position:absolute;
     inset:0;
     background-image:
-        radial-gradient(rgba(201,164,92,.12) 1px,transparent 1px);
+        radial-gradient(rgba(201,164,92,.06) 1px,transparent 1px);
     background-size:30px 30px;
-    opacity:.22;
+    opacity:.15;
     pointer-events:none;
 }
 
@@ -337,12 +374,12 @@ section::after{
     position:absolute;
     width:460px;
     height:460px;
-    border:1px solid rgba(201,164,92,.07);
+    border:1px solid rgba(201,164,92,.05);
     border-radius:50%;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    box-shadow:0 0 0 35px rgba(201,164,92,.018),0 0 0 70px rgba(201,164,92,.012);
+    box-shadow:0 0 0 35px rgba(201,164,92,.012),0 0 0 70px rgba(201,164,92,.008);
     pointer-events:none;
 }
 
@@ -1195,6 +1232,9 @@ section::after{
     .floating-text {
         font-size:50px;
     }
+    .floating-text-2 {
+        font-size:30px;
+    }
 }
 
 /* ================= FIXED MUSIC PLAYER ================= */
@@ -1212,10 +1252,10 @@ section::after{
     align-items:center;
     gap:12px;
     z-index:3000;
-    background:rgba(12,12,12,.94);
-    border:1px solid rgba(201,164,92,.65);
+    background:rgba(12,12,12,.96);
+    border:1px solid rgba(201,164,92,.6);
     border-radius:8px;
-    box-shadow:0 12px 40px rgba(0,0,0,.7),0 0 30px rgba(201,164,92,.08);
+    box-shadow:0 12px 40px rgba(0,0,0,.8),0 0 30px rgba(201,164,92,.06);
     backdrop-filter:blur(16px);
     transition:.35s ease;
     cursor:grab;
@@ -1489,9 +1529,11 @@ section::after{
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
     <div class="glow-orb glow-orb-3"></div>
+    <div class="glow-orb glow-orb-4"></div>
     
     <!-- Floating Text -->
     <div class="floating-text">LA FAMIGLIA</div>
+    <div class="floating-text-2">OMERTÀ</div>
     
     <!-- Particles (Falling Money) -->
     <div class="particle-container" id="particleContainer">
@@ -2852,11 +2894,11 @@ function typeEffect() {
 // Mulai animasi setelah halaman dimuat
 setTimeout(typeEffect, 800);
 
-/* ================= PARTICLES / FALLING MONEY ================= */
+/* ================= PARTICLES / FALLING MONEY - LEBIH CEPAT ================= */
 
 (function createParticles() {
     const container = document.getElementById('particleContainer');
-    const count = 25;
+    const count = 35;
     
     for (let i = 0; i < count; i++) {
         const particle = document.createElement('div');
@@ -2864,9 +2906,9 @@ setTimeout(typeEffect, 800);
         
         // Random position, size, animation duration, delay
         const left = Math.random() * 100;
-        const size = 18 + Math.random() * 20;
-        const duration = 12 + Math.random() * 18;
-        const delay = Math.random() * 20;
+        const size = 16 + Math.random() * 22;
+        const duration = 5 + Math.random() * 8; // LEBIH CEPAT: 5-13 detik
+        const delay = Math.random() * 3; // DELAY KECIL: langsung jatuh
         const rotation = Math.random() * 360;
         
         particle.style.left = left + '%';
@@ -2876,15 +2918,16 @@ setTimeout(typeEffect, 800);
         particle.style.animationDelay = delay + 's';
         particle.style.transform = 'rotate(' + rotation + 'deg)';
         
-        // Some particles are different colors
-        if (i % 5 === 0) {
+        // Variasi warna
+        const colorRand = Math.random();
+        if (colorRand < 0.3) {
             particle.style.background = 'linear-gradient(135deg, #c9a45c, #f0d080)';
-        } else if (i % 5 === 1) {
-            particle.style.background = 'linear-gradient(135deg, #64151d, #8d2732)';
-        } else if (i % 5 === 2) {
-            particle.style.background = 'linear-gradient(135deg, #e4c982, #c9a45c)';
-        } else if (i % 5 === 3) {
+        } else if (colorRand < 0.6) {
             particle.style.background = 'linear-gradient(135deg, #8d2732, #64151d)';
+        } else if (colorRand < 0.8) {
+            particle.style.background = 'linear-gradient(135deg, #e4c982, #c9a45c)';
+        } else {
+            particle.style.background = 'linear-gradient(135deg, #a88b5b, #c9a45c)';
         }
         
         container.appendChild(particle);
