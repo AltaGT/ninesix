@@ -63,7 +63,196 @@ body::after{
     background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.65) 100%);
 }
 
-.cloud{display:none;}
+/* ================= BACKGROUND ANIMATION ================= */
+
+.background-animation {
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+/* Smoke/Fog effect */
+.smoke-layer {
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(100,21,29,.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(201,164,92,.08) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 80%, rgba(100,21,29,.10) 0%, transparent 45%);
+    animation: smokeDrift 20s ease-in-out infinite alternate;
+}
+
+.smoke-layer-2 {
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(ellipse at 70% 60%, rgba(201,164,92,.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 30% 20%, rgba(100,21,29,.12) 0%, transparent 40%);
+    animation: smokeDrift 25s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes smokeDrift {
+    0% { transform: scale(1) translate(0, 0); opacity: .6; }
+    100% { transform: scale(1.1) translate(30px, -20px); opacity: 1; }
+}
+
+/* Falling particles - like money or confetti */
+.particle-container {
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.particle {
+    position:absolute;
+    top:-20px;
+    width:30px;
+    height:15px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border:1px solid rgba(201,164,92,.3);
+    border-radius:2px;
+    opacity:0;
+    animation: fall linear infinite;
+    transform: rotate(0deg);
+}
+
+.particle:nth-child(odd) {
+    background: linear-gradient(135deg, var(--wine), var(--wine-light));
+    border-color: rgba(100,21,29,.3);
+    width:25px;
+    height:12px;
+}
+
+.particle:nth-child(3n) {
+    width:20px;
+    height:10px;
+    background: linear-gradient(135deg, #c9a45c, #f0d080);
+}
+
+.particle::after {
+    content:"$";
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:8px;
+    font-weight:700;
+    color:rgba(0,0,0,.4);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity:0;
+    }
+    5% {
+        opacity:0.6;
+    }
+    90% {
+        opacity:0.6;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg) scale(1);
+        opacity:0;
+    }
+}
+
+/* Glow orbs */
+.glow-orb {
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:.3;
+    animation: orbFloat 15s ease-in-out infinite alternate;
+}
+
+.glow-orb-1 {
+    width:300px;
+    height:300px;
+    background:var(--wine);
+    top:10%;
+    left:-5%;
+    animation-delay:0s;
+}
+
+.glow-orb-2 {
+    width:250px;
+    height:250px;
+    background:var(--gold);
+    bottom:20%;
+    right:-5%;
+    animation-delay:5s;
+    opacity:.2;
+}
+
+.glow-orb-3 {
+    width:200px;
+    height:200px;
+    background:var(--wine-light);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation-delay:10s;
+    opacity:.15;
+}
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.2); }
+    66% { transform: translate(-20px, 40px) scale(0.9); }
+    100% { transform: translate(30px, -20px) scale(1.1); }
+}
+
+/* Floating text "LA FAMIGLIA" in background */
+.floating-text {
+    position:absolute;
+    font-family:'Cinzel',serif;
+    font-weight:800;
+    font-size:120px;
+    color:rgba(201,164,92,.03);
+    letter-spacing:15px;
+    white-space:nowrap;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-5deg);
+    animation: floatText 30s linear infinite;
+    pointer-events:none;
+    user-select:none;
+}
+
+@keyframes floatText {
+    0% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); opacity:.03; }
+    50% { transform: translate(-50%, -50%) rotate(2deg) scale(1.05); opacity:.06; }
+    100% { transform: translate(-50%, -50%) rotate(-5deg) scale(1); opacity:.03; }
+}
+
+/* Crime scene tape style border */
+.crime-tape {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--gold) 0px,
+        var(--gold) 20px,
+        #000 20px,
+        #000 25px,
+        var(--gold) 25px,
+        var(--gold) 45px
+    );
+    z-index:999;
+    opacity:.5;
+    animation: tapeMove 4s linear infinite;
+}
+
+@keyframes tapeMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 0; }
+}
 
 /* ================= HEADER ================= */
 
@@ -1000,6 +1189,12 @@ section::after{
     .social-sidebar a{
         font-size:6px;
     }
+    .particle {
+        display:none;
+    }
+    .floating-text {
+        font-size:50px;
+    }
 }
 
 /* ================= FIXED MUSIC PLAYER ================= */
@@ -1283,9 +1478,29 @@ section::after{
 
 <body>
 
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
+<!-- ================= BACKGROUND ANIMATION ================= -->
+
+<div class="background-animation">
+    <!-- Smoke Layers -->
+    <div class="smoke-layer"></div>
+    <div class="smoke-layer-2"></div>
+    
+    <!-- Glow Orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+    
+    <!-- Floating Text -->
+    <div class="floating-text">LA FAMIGLIA</div>
+    
+    <!-- Particles (Falling Money) -->
+    <div class="particle-container" id="particleContainer">
+        <!-- akan diisi JS -->
+    </div>
+</div>
+
+<!-- Crime Scene Tape -->
+<div class="crime-tape"></div>
 
 
 <!-- ================= SOCIAL SIDEBAR - VERTIKAL DI KIRI ================= -->
@@ -1722,7 +1937,7 @@ const DATA = {
         "Una Classe, Una Famiglia",
 
     namaKelas:
-        "XI.VI",
+        "XI.VI CLASS",
 
     deskripsiHome:
         "Selamat datang di markas resmi XI.VI. Di sini tersimpan struktur keluarga, jadwal tugas, arsip kegiatan, dan berbagai cerita yang membentuk satu keluarga besar.",
@@ -2637,8 +2852,46 @@ function typeEffect() {
 // Mulai animasi setelah halaman dimuat
 setTimeout(typeEffect, 800);
 
-</script>
+/* ================= PARTICLES / FALLING MONEY ================= */
 
+(function createParticles() {
+    const container = document.getElementById('particleContainer');
+    const count = 25;
+    
+    for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random position, size, animation duration, delay
+        const left = Math.random() * 100;
+        const size = 18 + Math.random() * 20;
+        const duration = 12 + Math.random() * 18;
+        const delay = Math.random() * 20;
+        const rotation = Math.random() * 360;
+        
+        particle.style.left = left + '%';
+        particle.style.width = size + 'px';
+        particle.style.height = (size * 0.6) + 'px';
+        particle.style.animationDuration = duration + 's';
+        particle.style.animationDelay = delay + 's';
+        particle.style.transform = 'rotate(' + rotation + 'deg)';
+        
+        // Some particles are different colors
+        if (i % 5 === 0) {
+            particle.style.background = 'linear-gradient(135deg, #c9a45c, #f0d080)';
+        } else if (i % 5 === 1) {
+            particle.style.background = 'linear-gradient(135deg, #64151d, #8d2732)';
+        } else if (i % 5 === 2) {
+            particle.style.background = 'linear-gradient(135deg, #e4c982, #c9a45c)';
+        } else if (i % 5 === 3) {
+            particle.style.background = 'linear-gradient(135deg, #8d2732, #64151d)';
+        }
+        
+        container.appendChild(particle);
+    }
+})();
+
+</script>
 
 </body>
 </html>
