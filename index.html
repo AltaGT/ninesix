@@ -75,7 +75,7 @@ body::after{
     pointer-events:none;
 }
 
-/* Smoke/Fog effect - lebih gelap dan merah */
+/* Smoke/Fog effect */
 .smoke-layer {
     position:absolute;
     inset:0;
@@ -102,7 +102,7 @@ body::after{
     100% { transform: scale(1.08) translate(20px, -15px); opacity: 1; }
 }
 
-/* Falling particles - lebih cepat */
+/* Falling particles */
 .particle-container {
     position:absolute;
     inset:0;
@@ -163,7 +163,7 @@ body::after{
     }
 }
 
-/* Glow orbs - lebih merah */
+/* Glow orbs */
 .glow-orb {
     position:absolute;
     border-radius:50%;
@@ -220,7 +220,7 @@ body::after{
     100% { transform: translate(40px, -30px) scale(1.05); }
 }
 
-/* Floating text "LA FAMIGLIA" */
+/* Floating text */
 .floating-text {
     position:absolute;
     font-family:'Cinzel',serif;
@@ -1226,8 +1226,13 @@ section::after{
     .social-sidebar a{
         font-size:6px;
     }
+    /* PARTICLE TETAP MUNCUL DI HP - ukuran lebih kecil */
     .particle {
-        display:none;
+        width:16px !important;
+        height:8px !important;
+    }
+    .particle::after {
+        font-size:4px !important;
     }
     .floating-text {
         font-size:50px;
@@ -2894,21 +2899,22 @@ function typeEffect() {
 // Mulai animasi setelah halaman dimuat
 setTimeout(typeEffect, 800);
 
-/* ================= PARTICLES / FALLING MONEY - LEBIH CEPAT ================= */
+/* ================= PARTICLES / FALLING MONEY - HP FRIENDLY ================= */
 
 (function createParticles() {
     const container = document.getElementById('particleContainer');
-    const count = 35;
+    // Deteksi HP: lebih sedikit particle
+    const isMobile = window.innerWidth < 800;
+    const count = isMobile ? 18 : 35;
     
     for (let i = 0; i < count; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         
-        // Random position, size, animation duration, delay
         const left = Math.random() * 100;
-        const size = 16 + Math.random() * 22;
-        const duration = 5 + Math.random() * 8; // LEBIH CEPAT: 5-13 detik
-        const delay = Math.random() * 3; // DELAY KECIL: langsung jatuh
+        const size = isMobile ? 12 + Math.random() * 14 : 16 + Math.random() * 22;
+        const duration = isMobile ? 4 + Math.random() * 6 : 5 + Math.random() * 8;
+        const delay = Math.random() * 2;
         const rotation = Math.random() * 360;
         
         particle.style.left = left + '%';
@@ -2918,7 +2924,6 @@ setTimeout(typeEffect, 800);
         particle.style.animationDelay = delay + 's';
         particle.style.transform = 'rotate(' + rotation + 'deg)';
         
-        // Variasi warna
         const colorRand = Math.random();
         if (colorRand < 0.3) {
             particle.style.background = 'linear-gradient(135deg, #c9a45c, #f0d080)';
